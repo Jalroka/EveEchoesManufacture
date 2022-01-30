@@ -1,0 +1,630 @@
+﻿<Page
+    x:Class="EveEchoesManufacture.Pages.CostsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:EveEchoesManufacture.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls" 
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    xmlns:vm="using:EveEchoesManufacture.ViewModels">
+    <Page.DataContext>
+        <vm:CostsViewModel x:Name="vm"/>
+    </Page.DataContext>
+
+    <StackPanel>
+        <Button 
+            x:Name="Costs"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Height="40"
+            Width="40"
+            Click="GoBack_Click">
+            <Button.Content>
+                <StackPanel>
+                    <FontIcon 
+                    FontSize="15"
+                    FontFamily="{ThemeResource SymbolThemeFontFamily}"
+                    Glyph="&#xe845;"/>
+                </StackPanel>
+            </Button.Content>
+        </Button>
+        <controls:Expander
+                Header="Minerals">
+            <StackPanel>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                            Grid.Column="0"
+                            Text="Tritanium"/>
+                    <TextBox
+                            Grid.Column="1"
+                            Text="{x:Bind vm.ResourceValues.Tritanium, Mode=TwoWay}"/>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                            Grid.Column="0"
+                            Text="Pyerite"/>
+                    <TextBox
+                            Grid.Column="1"
+                            Text="{x:Bind vm.ResourceValues.Pyerite, Mode=TwoWay}"/>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                            Grid.Column="0"
+                            Text="Mexallon"/>
+                    <TextBox
+                            Grid.Column="1"
+                            Text="{x:Bind vm.ResourceValues.Mexallon, Mode=TwoWay}"/>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                            Grid.Column="0"
+                            Text="Isogen"/>
+                    <TextBox
+                            Grid.Column="1"
+                            Text="{x:Bind vm.ResourceValues.Isogen, Mode=TwoWay}"/>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                            Grid.Column="0"
+                            Text="Nocxium"/>
+                    <TextBox
+                            Grid.Column="1"
+                            Text="{x:Bind vm.ResourceValues.Nocxium, Mode=TwoWay}"/>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                            Grid.Column="0"
+                            Text="Zydrine"/>
+                    <TextBox
+                            Grid.Column="1"
+                            Text="{x:Bind vm.ResourceValues.Zydrine, Mode=TwoWay}"/>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                            Grid.Column="0"
+                            Text="Megacyte"/>
+                    <TextBox
+                            Grid.Column="1"
+                            Text="{x:Bind vm.ResourceValues.Megacyte, Mode=TwoWay}"/>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                            Grid.Column="0"
+                            Text="Morphite"/>
+                    <TextBox
+                            Grid.Column="1"
+                            Text="{x:Bind vm.ResourceValues.Morphite, Mode=TwoWay}"/>
+                </Grid>
+            </StackPanel>
+        </controls:Expander>
+        <controls:Expander
+                Header="Planetary Resources">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <StackPanel
+                    Grid.Column="0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock
+                        Grid.Column="0"
+                        Text="Lustering Alloy"/>
+                        <TextBox
+                        Grid.Column="1"
+                        Text="{x:Bind vm.ResourceValues.LusteringAlloy, Mode=TwoWay}"/>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock
+                        Grid.Column="0"
+                        Text="Sheen Compound"/>
+                        <TextBox
+                        Grid.Column="1"
+                        Text="{x:Bind vm.ResourceValues.SheenCompound, Mode=TwoWay}"/>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock
+                        Grid.Column="0"
+                        Text="Gleaming Alloy"/>
+                        <TextBox
+                        Grid.Column="1"
+                        Text="{x:Bind vm.ResourceValues.GleamingAlloy, Mode=TwoWay}"/>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock
+                        Grid.Column="0"
+                        Text="Condensed Alloy"/>
+                        <TextBox
+                        Grid.Column="1"
+                        Text="{x:Bind vm.ResourceValues.CondensedAlloy, Mode=TwoWay}"/>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock
+                        Grid.Column="0"
+                        Text="Precious Alloy"/>
+                        <TextBox
+                        Grid.Column="1"
+                        Text="{x:Bind vm.ResourceValues.PreciousAlloy, Mode=TwoWay}"/>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock
+                        Grid.Column="0"
+                        Text="Motley Compound"/>
+                        <TextBox
+                        Grid.Column="1"
+                        Text="{x:Bind vm.ResourceValues.MotleyCompound, Mode=TwoWay}"/>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock
+                        Grid.Column="0"
+                        Text="Fiber Composite"/>
+                        <TextBox
+                        Grid.Column="1"
+                        Text="{x:Bind vm.ResourceValues.FiberComposite, Mode=TwoWay}"/>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock
+                        Grid.Column="0"
+                        Text="Lucent Compound"/>
+                        <TextBox
+                        Grid.Column="1"
+                        Text="{x:Bind vm.ResourceValues.LucentCompound, Mode=TwoWay}"/>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock
+                        Grid.Column="0"
+                        Text="Opulent Compound"/>
+                        <TextBox
+                        Grid.Column="1"
+                        Text="{x:Bind vm.ResourceValues.OpulentCompound, Mode=TwoWay}"/>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock
+                        Grid.Column="0"
+                        Text="Glossy Compound"/>
+                        <TextBox
+                        Grid.Column="1"
+                        Text="{x:Bind vm.ResourceValues.GlossyCompound, Mode=TwoWay}"/>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock
+                        Grid.Column="0"
+                        Text="Crystal Compound"/>
+                        <TextBox
+                        Grid.Column="1"
+                        Text="{x:Bind vm.ResourceValues.CrystalCompound, Mode=TwoWay}"/>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock
+                        Grid.Column="0"
+                        Text="Dark Compound"/>
+                        <TextBox
+                        Grid.Column="1"
+                        Text="{x:Bind vm.ResourceValues.DarkCompound, Mode=TwoWay}"/>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock
+                        Grid.Column="0"
+                        Text="Base Metals"/>
+                        <TextBox
+                        Grid.Column="1"
+                        Text="{x:Bind vm.ResourceValues.BaseMetals, Mode=TwoWay}"/>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock
+                        Grid.Column="0"
+                        Text="Heavy Metals"/>
+                        <TextBox
+                        Grid.Column="1"
+                        Text="{x:Bind vm.ResourceValues.HeavyMetals, Mode=TwoWay}"/>
+                    </Grid>
+                </StackPanel>
+                <StackPanel
+                    Grid.Column="1">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock
+                        Grid.Column="0"
+                        Text="Reactive Metals"/>
+                        <TextBox
+                        Grid.Column="1"
+                        Text="{x:Bind vm.ResourceValues.ReactiveMetals, Mode=TwoWay}"/>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock
+                        Grid.Column="0"
+                        Text="Noble Metals"/>
+                        <TextBox
+                        Grid.Column="1"
+                        Text="{x:Bind vm.ResourceValues.NobleMetals, Mode=TwoWay}"/>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock
+                        Grid.Column="0"
+                        Text="Toxic Metals"/>
+                        <TextBox
+                        Grid.Column="1"
+                        Text="{x:Bind vm.ResourceValues.ToxicMetals, Mode=TwoWay}"/>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock
+                        Grid.Column="0"
+                        Text="Reactive Gas"/>
+                        <TextBox
+                        Grid.Column="1"
+                        Text="{x:Bind vm.ResourceValues.ReactiveGas, Mode=TwoWay}"/>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock
+                        Grid.Column="0"
+                        Text="Noble Gas"/>
+                        <TextBox
+                        Grid.Column="1"
+                        Text="{x:Bind vm.ResourceValues.NobleGas, Mode=TwoWay}"/>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock
+                        Grid.Column="0"
+                        Text="Industrial Fibers"/>
+                        <TextBox
+                        Grid.Column="1"
+                        Text="{x:Bind vm.ResourceValues.IndustrialFibers, Mode=TwoWay}"/>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock
+                        Grid.Column="0"
+                        Text="Supertensile Plastics"/>
+                        <TextBox
+                        Grid.Column="1"
+                        Text="{x:Bind vm.ResourceValues.SupertensilePlastics, Mode=TwoWay}"/>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock
+                        Grid.Column="0"
+                        Text="Polyaramids"/>
+                        <TextBox
+                        Grid.Column="1"
+                        Text="{x:Bind vm.ResourceValues.Polyaramids, Mode=TwoWay}"/>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock
+                        Grid.Column="0"
+                        Text="Coolant"/>
+                        <TextBox
+                        Grid.Column="1"
+                        Text="{x:Bind vm.ResourceValues.Coolant, Mode=TwoWay}"/>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock
+                        Grid.Column="0"
+                        Text="Condensates"/>
+                        <TextBox
+                        Grid.Column="1"
+                        Text="{x:Bind vm.ResourceValues.Condensates, Mode=TwoWay}"/>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock
+                        Grid.Column="0"
+                        Text="Construction Blocks"/>
+                        <TextBox
+                        Grid.Column="1"
+                        Text="{x:Bind vm.ResourceValues.ConstructionBlocks, Mode=TwoWay}"/>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock
+                        Grid.Column="0"
+                        Text="Nanites"/>
+                        <TextBox
+                        Grid.Column="1"
+                        Text="{x:Bind vm.ResourceValues.Nanites, Mode=TwoWay}"/>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock
+                        Grid.Column="0"
+                        Text="Silicate Glass"/>
+                        <TextBox
+                        Grid.Column="1"
+                        Text="{x:Bind vm.ResourceValues.SilicateGlass, Mode=TwoWay}"/>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock
+                        Grid.Column="0"
+                        Text="Smartfab Units"/>
+                        <TextBox
+                        Grid.Column="1"
+                        Text="{x:Bind vm.ResourceValues.SmartfabUnits, Mode=TwoWay}"/>
+                    </Grid>
+                </StackPanel>
+                
+                
+            </Grid>
+        </controls:Expander>
+        <controls:Expander
+                Header="Ratting Resources">
+            <StackPanel>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Grid.Column="0"
+                        Text="Charred Micro Circuit"/>
+                    <TextBox
+                        Grid.Column="1"
+                        Text="{x:Bind vm.ResourceValues.CharredMicroCircuit, Mode=TwoWay}"/>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Grid.Column="0"
+                        Text="Fried Interface Circuit"/>
+                    <TextBox
+                        Grid.Column="1"
+                        Text="{x:Bind vm.ResourceValues.FriedInterfaceCircuit, Mode=TwoWay}"/>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Grid.Column="0"
+                        Text="Tripped Power Circuit"/>
+                    <TextBox
+                        Grid.Column="1"
+                        Text="{x:Bind vm.ResourceValues.TrippedPowerCircuit, Mode=TwoWay}"/>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Grid.Column="0"
+                        Text="Smashed Trigger Unit"/>
+                    <TextBox
+                        Grid.Column="1"
+                        Text="{x:Bind vm.ResourceValues.SmashedTriggerUnit, Mode=TwoWay}"/>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Grid.Column="0"
+                        Text="Damaged Close in Weapon System"/>
+                    <TextBox
+                        Grid.Column="1"
+                        Text="{x:Bind vm.ResourceValues.DamagedCloseinWeaponSystem, Mode=TwoWay}"/>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Grid.Column="0"
+                        Text="Scorched Telemetry Processor"/>
+                    <TextBox
+                        Grid.Column="1"
+                        Text="{x:Bind vm.ResourceValues.ScorchedTelemetryProcessor, Mode=TwoWay}"/>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Grid.Column="0"
+                        Text="Contaminated Lorentz Fluid"/>
+                    <TextBox
+                        Grid.Column="1"
+                        Text="{x:Bind vm.ResourceValues.ContaminatedLorentzFluid, Mode=TwoWay}"/>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Grid.Column="0"
+                        Text="Conductive Polymer"/>
+                    <TextBox
+                        Grid.Column="1"
+                        Text="{x:Bind vm.ResourceValues.ConductivePolymer, Mode=TwoWay}"/>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Grid.Column="0"
+                        Text="Contaminated Nanite Compound"/>
+                    <TextBox
+                        Grid.Column="1"
+                        Text="{x:Bind vm.ResourceValues.ContaminatedNaniteCompound, Mode=TwoWay}"/>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Grid.Column="0"
+                        Text="Defective Current Pump"/>
+                    <TextBox
+                        Grid.Column="1"
+                        Text="{x:Bind vm.ResourceValues.DefectiveCurrentPump, Mode=TwoWay}"/>
+                </Grid>
+            </StackPanel>
+        </controls:Expander>
+        <Button 
+            x:Name="Save"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Height="40"
+            Width="40"
+            Click="Save_Click">
+            <Button.Content>
+                <StackPanel>
+                    <FontIcon 
+                    FontSize="15"
+                    FontFamily="{ThemeResource SymbolThemeFontFamily}"
+                    Glyph="&#xe74e;"/>
+                </StackPanel>
+            </Button.Content>
+        </Button>
+    </StackPanel>
+</Page>

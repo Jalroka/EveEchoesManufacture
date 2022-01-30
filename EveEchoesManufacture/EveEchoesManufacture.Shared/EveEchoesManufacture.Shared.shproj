@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>6279c845-92f8-4333-ab99-3d213163593c</ProjectGuid>
+    <MinimumVisualStudioVersion>14.0</MinimumVisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\CodeSharing\Microsoft.CodeSharing.Common.Default.props" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\CodeSharing\Microsoft.CodeSharing.Common.props" />
+  <PropertyGroup />
+  <Import Project="EveEchoesManufacture.Shared.projitems" Label="Shared" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\CodeSharing\Microsoft.CodeSharing.CSharp.targets" />
+  <ItemGroup>
+    <_Globbed_Compile Remove="BaseManufacturablesService.cs" />
+    <_Globbed_Compile Remove="Contracts\ManufacturableItem.cs" />
+    <_Globbed_Compile Remove="Contracts\MaterialEfficiencies.cs" />
+    <_Globbed_Compile Remove="Contracts\ResourceValues.cs" />
+    <_Globbed_Compile Remove="Converters\ZeroToHiddenConverter.cs" />
+    <_Globbed_Compile Remove="Pages\Calculator.xaml.cs" />
+    <_Globbed_Compile Remove="Pages\CalculatorPage.xaml.cs" />
+    <_Globbed_Compile Remove="Pages\Costs.xaml.cs" />
+    <_Globbed_Compile Remove="Pages\CostsPage.xaml.cs" />
+    <_Globbed_Compile Remove="Pages\ManufacturePage.xaml.cs" />
+    <_Globbed_Compile Remove="Pages\ReprocessPage.xaml.cs" />
+    <_Globbed_Compile Remove="Pages\SkillsPage.xaml.cs" />
+    <_Globbed_Compile Remove="Pages\TileNavPage.xaml.cs" />
+    <_Globbed_Compile Remove="Services\CostCalculatorService.cs" />
+    <_Globbed_Compile Remove="Services\SettingsManager.cs" />
+    <_Globbed_Compile Remove="Services\SettingsServices.cs" />
+    <_Globbed_Compile Remove="SkillsPage.xaml.cs" />
+    <_Globbed_Compile Remove="ViewModels\BaseViewModel.cs" />
+    <_Globbed_Compile Remove="ViewModels\CostsViewModel.cs" />
+    <_Globbed_Compile Remove="ViewModels\ManufactureViewModel.cs" />
+    <_Globbed_Compile Remove="ViewModels\ReprocessViewModel.cs" />
+    <_Globbed_Compile Remove="ViewModels\SkillsViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <_Globbled_Page Remove="Pages\Calculator.xaml" />
+    <_Globbled_Page Remove="Pages\CalculatorPage.xaml" />
+    <_Globbled_Page Remove="Pages\Costs.xaml" />
+    <_Globbled_Page Remove="Pages\CostsPage.xaml" />
+    <_Globbled_Page Remove="Pages\ManufacturePage.xaml" />
+    <_Globbled_Page Remove="Pages\ReprocessPage.xaml" />
+    <_Globbled_Page Remove="Pages\SkillsPage.xaml" />
+    <_Globbled_Page Remove="Pages\TileNavPage.xaml" />
+    <_Globbled_Page Remove="SkillsPage.xaml" />
+  </ItemGroup>
+</Project>

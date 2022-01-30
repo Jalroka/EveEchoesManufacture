@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="CsvHelper" Version="27.2.1" />
+    <PackageReference Include="Fody" Version="6.6.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="5.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="PropertyChanged.Fody" Version="3.4.0" />
+    <PackageReference Include="Uno.Microsoft.Toolkit.Uwp.UI.Controls.Input" Version="7.0.0" />
+    <PackageReference Include="Uno.UI.Skia.Wpf" Version="4.0.9" />
+    <PackageReference Include="Uno.UI.RemoteControl" Version="4.0.9" Condition="'$(Configuration)'=='Debug'" />
+    <PackageReference Include="Uno.UI.Adapter.Microsoft.Extensions.Logging" Version="4.0.9" />
+  </ItemGroup>
+  <ItemGroup>
+    <UpToDateCheckInput Include="..\EveEchoesManufacture.Shared\**\*.xaml" />
+  </ItemGroup>
+  <Import Project="..\EveEchoesManufacture.Shared\EveEchoesManufacture.Shared.projitems" Label="Shared" />
+</Project>

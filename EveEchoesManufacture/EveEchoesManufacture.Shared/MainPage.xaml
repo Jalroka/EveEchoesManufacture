@@ -1,0 +1,86 @@
+﻿<Page
+    x:Class="EveEchoesManufacture.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:EveEchoesManufacture"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="using:EveEchoesManufacture.ViewModels"
+    xmlns:cnv="using:EveEchoesManufacture.Converters"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls" 
+    xmlns:views="using:EveEchoesManufacture.Pages"
+    mc:Ignorable="d"    
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.DataContext>
+        <vm:MainPageViewModel x:Name="VM"/>
+    </Page.DataContext>
+    <Grid>
+        <Frame
+            x:Name="contentView">
+        </Frame>
+    </Grid>
+    <!--<Page.Resources>
+        <cnv:ZeroToHiddenConverter x:Key="ZeroToHiddenConverter"/>
+    </Page.Resources>
+    <Page.BottomAppBar>
+        <AppBar>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button 
+                    Grid.Column="0"
+                    Content="Calulator"/>
+                <Button 
+                    Grid.Column="1"
+                    Content="Costs"/>
+                <Button 
+                    Grid.Column="2"
+                    Content="Skills"/>
+                <Button 
+                    Grid.Column="3"
+                    Content="Reprocessing"/>
+            </Grid>
+        </AppBar>
+    </Page.BottomAppBar>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+
+
+        <StackPanel
+            Margin="20"
+            Grid.Column="1">
+            
+            
+
+
+            <controls:Expander
+                Header="Market Costs">
+                <StackPanel>
+                
+                </StackPanel>
+            </controls:Expander>
+
+            <controls:Expander
+                Header="Contract Costs">
+                <StackPanel>
+
+                </StackPanel>
+            </controls:Expander>
+
+
+            <Button
+                Content="Save/Update"
+                Click="SaveUpdate_Click"
+                />
+
+        </StackPanel>
+    </Grid>-->
+</Page>

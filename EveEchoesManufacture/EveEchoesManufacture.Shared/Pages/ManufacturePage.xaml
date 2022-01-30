@@ -1,0 +1,1012 @@
+﻿<Page
+    x:Class="EveEchoesManufacture.Pages.ManufacturePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:EveEchoesManufacture.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    xmlns:cnv="using:EveEchoesManufacture.Converters" 
+    xmlns:vm="using:EveEchoesManufacture.ViewModels">
+    <Page.DataContext>
+        <vm:ManufactureViewModel x:Name="VM"/>
+    </Page.DataContext>
+    
+    <Page.Resources>
+        <cnv:ZeroToHiddenConverter x:Key="ZeroToHiddenConverter"/>
+    </Page.Resources>
+    <StackPanel>
+        <Button 
+            x:Name="Costs"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Height="40"
+            Width="40"
+            Click="GoBack_Click">
+            <Button.Content>
+                <StackPanel>
+                    <FontIcon 
+                    FontSize="15"
+                    FontFamily="{ThemeResource SymbolThemeFontFamily}"
+                    Glyph="&#xe845;"/>
+                </StackPanel>
+            </Button.Content>
+        </Button>
+        <StackPanel
+            Margin="20"
+            Grid.Column="0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <ComboBox
+                    Grid.Column="0"
+                    x:Name="ItemTypeSelector"
+                    Header="Item Type"
+                    ItemsSource="{x:Bind VM.Types}"
+                    Margin="20"
+                    SelectionChanged="ItemTypeSelector_SelectionChanged">
+                </ComboBox>
+
+                <ComboBox
+                    Grid.Column="1"
+                    x:Name="ItemSelector"
+                    Header="Item"
+                    ItemsSource="{x:Bind VM.MatchingTypeOptions}"
+                    Margin="20"
+                    SelectionChanged="ItemSelector_SelectionChanged">
+                </ComboBox>
+            </Grid>
+            <TextBlock 
+              Text="{x:Bind vm.SelectedItem.Name, Mode=TwoWay}" 
+              FontSize="30" />
+            <Grid
+                Margin="10"
+>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Grid.Column="0"
+                    Text="Tech Level"/>
+                <TextBlock
+                    Margin="5,0,0,0"
+                    Grid.Column="1"
+                    Text="{x:Bind vm.SelectedItem.TechLevel, Mode=TwoWay}"/>
+            </Grid>
+            
+            <!--<Grid
+                Margin="10"
+>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Grid.Column="0"
+                    Text="Efficiancy"/>
+                <TextBlock
+                    Margin="5,0,0,0"
+                    Grid.Column="1"
+                    Text="{x:Bind vm.SelectedItem.TechLevel, Mode=TwoWay}"/>
+            </Grid>-->
+            
+
+            <!-- Item Costs Section-->
+
+            <Grid
+                Visibility="{x:Bind vm.SelectedItem.Tritanium, Mode=OneWay, Converter={StaticResource ZeroToHiddenConverter}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                
+                <TextBlock
+                    Grid.Column="1"
+                    Text="Base"/>
+                <TextBlock
+                    Grid.Column="2"
+                    Text="Effective"/>
+            </Grid>
+            <Grid
+                Visibility="{x:Bind vm.SelectedItem.Tritanium, Mode=OneWay, Converter={StaticResource ZeroToHiddenConverter}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Grid.Column="0"
+                    Text="Tritanium"/>
+                <TextBlock
+                    Grid.Column="1"
+                    Text="{x:Bind vm.SelectedItem.Tritanium, Mode=TwoWay}"/>
+                <TextBlock
+                    Grid.Column="2"
+                    Text="{x:Bind vm.SelectedItem.EffectiveTritanium, Mode=TwoWay}"/>
+            </Grid>
+            <Grid
+                Visibility="{x:Bind vm.SelectedItem.Pyerite, Mode=OneWay, Converter={StaticResource ZeroToHiddenConverter}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Grid.Column="0"
+                    Text="Pyerite"/>
+                <TextBlock
+                    Grid.Column="1"
+                    Text="{x:Bind vm.SelectedItem.Pyerite, Mode=TwoWay}"/>
+                <TextBlock
+                    Grid.Column="2"
+                    Text="{x:Bind vm.SelectedItem.EffectivePyerite, Mode=TwoWay}"/>
+            </Grid>
+            <Grid
+                Visibility="{x:Bind vm.SelectedItem.Mexallon, Mode=OneWay, Converter={StaticResource ZeroToHiddenConverter}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Grid.Column="0"
+                    Text="Mexallon"/>
+                <TextBlock
+                    Grid.Column="1"
+                    Text="{x:Bind vm.SelectedItem.Mexallon, Mode=TwoWay}"/>
+                <TextBlock
+                    Grid.Column="2"
+                    Text="{x:Bind vm.SelectedItem.EffectiveMexallon, Mode=TwoWay}"/>
+            </Grid>
+            <Grid
+                Visibility="{x:Bind vm.SelectedItem.Isogen, Mode=OneWay, Converter={StaticResource ZeroToHiddenConverter}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Grid.Column="0"
+                    Text="Isogen"/>
+                <TextBlock
+                    Grid.Column="1"
+                    Text="{x:Bind vm.SelectedItem.Isogen, Mode=TwoWay}"/>
+                <TextBlock
+                    Grid.Column="2"
+                    Text="{x:Bind vm.SelectedItem.EffectiveIsogen, Mode=TwoWay}"/>
+            </Grid>
+            <Grid
+                Visibility="{x:Bind vm.SelectedItem.Nocxium, Mode=OneWay, Converter={StaticResource ZeroToHiddenConverter}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Grid.Column="0"
+                    Text="Nocxium"/>
+                <TextBlock
+                    Grid.Column="1"
+                    Text="{x:Bind vm.SelectedItem.Nocxium, Mode=TwoWay}"/>
+                <TextBlock
+                    Grid.Column="2"
+                    Text="{x:Bind vm.SelectedItem.EffectiveNocxium, Mode=TwoWay}"/>
+            </Grid>
+            <Grid
+                Visibility="{x:Bind vm.SelectedItem.Zydrine, Mode=OneWay, Converter={StaticResource ZeroToHiddenConverter}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Grid.Column="0"
+                    Text="Zydrine"/>
+                <TextBlock
+                    Grid.Column="1"
+                    Text="{x:Bind vm.SelectedItem.Zydrine, Mode=TwoWay}"/>
+                <TextBlock
+                    Grid.Column="2"
+                    Text="{x:Bind vm.SelectedItem.EffectiveZydrine, Mode=TwoWay}"/>
+            </Grid>
+            <Grid
+                Visibility="{x:Bind vm.SelectedItem.Megacyte, Mode=OneWay, Converter={StaticResource ZeroToHiddenConverter}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Grid.Column="0"
+                    Text="Megacyte"/>
+                <TextBlock
+                    Grid.Column="1"
+                    Text="{x:Bind vm.SelectedItem.Megacyte, Mode=TwoWay}"/>
+                <TextBlock
+                    Grid.Column="2"
+                    Text="{x:Bind vm.SelectedItem.EffectiveMegacyte, Mode=TwoWay}"/>
+            </Grid>
+            <Grid
+                Visibility="{x:Bind vm.SelectedItem.Morphite, Mode=OneWay, Converter={StaticResource ZeroToHiddenConverter}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Grid.Column="0"
+                    Text="Morphite"/>
+                <TextBlock
+                    Grid.Column="1"
+                    Text="{x:Bind vm.SelectedItem.Morphite, Mode=TwoWay}"/>
+                <TextBlock
+                    Grid.Column="2"
+                    Text="{x:Bind vm.SelectedItem.EffectiveMorphite, Mode=TwoWay}"/>
+            </Grid>
+            <Grid
+                Visibility="{x:Bind vm.SelectedItem.LusteringAlloy, Mode=OneWay, Converter={StaticResource ZeroToHiddenConverter}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Grid.Column="0"
+                    Text="Lustering Alloy"/>
+                <TextBlock
+                    Grid.Column="1"
+                    Text="{x:Bind vm.SelectedItem.LusteringAlloy, Mode=TwoWay}"/>
+                <TextBlock
+                    Grid.Column="2"
+                    Text="{x:Bind vm.SelectedItem.EffectiveLusteringAlloy, Mode=TwoWay}"/>
+            </Grid>
+            <Grid
+                Visibility="{x:Bind vm.SelectedItem.SheenCompound, Mode=OneWay,  Converter={StaticResource ZeroToHiddenConverter}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Grid.Column="0"
+                    Text="Sheen Compound"/>
+                <TextBlock
+                    Grid.Column="1"
+                    Text="{x:Bind vm.SelectedItem.SheenCompound, Mode=TwoWay}"/>
+                <TextBlock
+                    Grid.Column="2"
+                    Text="{x:Bind vm.SelectedItem.EffectiveSheenCompound, Mode=TwoWay}"/>
+            </Grid>
+            <Grid
+                Visibility="{x:Bind vm.SelectedItem.GleamingAlloy, Mode=OneWay, Converter={StaticResource ZeroToHiddenConverter}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Grid.Column="0"
+                    Text="Gleaming Alloy"/>
+                <TextBlock
+                    Grid.Column="1"
+                    Text="{x:Bind vm.SelectedItem.GleamingAlloy, Mode=TwoWay}"/>
+                <TextBlock
+                    Grid.Column="2"
+                    Text="{x:Bind vm.SelectedItem.EffectiveGleamingAlloy, Mode=TwoWay}"/>
+            </Grid>
+            <Grid
+                Visibility="{x:Bind vm.SelectedItem.CondensedAlloy, Mode=OneWay, Converter={StaticResource ZeroToHiddenConverter}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Grid.Column="0"
+                    Text="Condensed Alloy"/>
+                <TextBlock
+                    Grid.Column="1"
+                    Text="{x:Bind vm.SelectedItem.CondensedAlloy, Mode=TwoWay}"/>
+                <TextBlock
+                    Grid.Column="2"
+                    Text="{x:Bind vm.SelectedItem.EffectiveCondensedAlloy, Mode=TwoWay}"/>
+            </Grid>
+            <Grid
+                Visibility="{x:Bind vm.SelectedItem.PreciousAlloy, Mode=OneWay, Converter={StaticResource ZeroToHiddenConverter}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Grid.Column="0"
+                    Text="Precious Alloy"/>
+                <TextBlock
+                    Grid.Column="1"
+                    Text="{x:Bind vm.SelectedItem.PreciousAlloy, Mode=TwoWay}"/>
+                <TextBlock
+                    Grid.Column="2"
+                    Text="{x:Bind vm.SelectedItem.EffectivePreciousAlloy, Mode=TwoWay}"/>
+            </Grid>
+            <Grid
+                Visibility="{x:Bind vm.SelectedItem.MotleyCompound, Mode=OneWay, Converter={StaticResource ZeroToHiddenConverter}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Grid.Column="0"
+                    Text="Motley Compound"/>
+                <TextBlock
+                    Grid.Column="1"
+                    Text="{x:Bind vm.SelectedItem.MotleyCompound, Mode=TwoWay}"/>
+                <TextBlock
+                    Grid.Column="2"
+                    Text="{x:Bind vm.SelectedItem.EffectiveMotleyCompound, Mode=TwoWay}"/>
+            </Grid>
+            <Grid
+                Visibility="{x:Bind vm.SelectedItem.FiberComposite, Mode=OneWay, Converter={StaticResource ZeroToHiddenConverter}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Grid.Column="0"
+                    Text="Fiber Composite"/>
+                <TextBlock
+                    Grid.Column="1"
+                    Text="{x:Bind vm.SelectedItem.FiberComposite, Mode=TwoWay}"/>
+                <TextBlock
+                    Grid.Column="2"
+                    Text="{x:Bind vm.SelectedItem.EffectiveFiberComposite, Mode=TwoWay}"/>
+            </Grid>
+            <Grid
+                Visibility="{x:Bind vm.SelectedItem.LucentCompound, Mode=OneWay, Converter={StaticResource ZeroToHiddenConverter}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Grid.Column="0"
+                    Text="Lucent Compound"/>
+                <TextBlock
+                    Grid.Column="1"
+                    Text="{x:Bind vm.SelectedItem.LucentCompound, Mode=TwoWay}"/>
+                <TextBlock
+                    Grid.Column="2"
+                    Text="{x:Bind vm.SelectedItem.EffectiveLucentCompound, Mode=TwoWay}"/>
+            </Grid>
+            <Grid
+                Visibility="{x:Bind vm.SelectedItem.OpulentCompound, Mode=OneWay, Converter={StaticResource ZeroToHiddenConverter}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Grid.Column="0"
+                    Text="Opulent Compound"/>
+                <TextBlock
+                    Grid.Column="1"
+                    Text="{x:Bind vm.SelectedItem.OpulentCompound, Mode=TwoWay}"/>
+                <TextBlock
+                    Grid.Column="2"
+                    Text="{x:Bind vm.SelectedItem.EffectiveOpulentCompound, Mode=TwoWay}"/>
+            </Grid>
+            <Grid
+                Visibility="{x:Bind vm.SelectedItem.GlossyCompound, Mode=OneWay, Converter={StaticResource ZeroToHiddenConverter}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Grid.Column="0"
+                    Text="Glossy Compound"/>
+                <TextBlock
+                    Grid.Column="1"
+                    Text="{x:Bind vm.SelectedItem.GlossyCompound, Mode=TwoWay}"/>
+                <TextBlock
+                    Grid.Column="2"
+                    Text="{x:Bind vm.SelectedItem.EffectiveGlossyCompound, Mode=TwoWay}"/>
+            </Grid>
+            <Grid
+                Visibility="{x:Bind vm.SelectedItem.CrystalCompound, Mode=OneWay, Converter={StaticResource ZeroToHiddenConverter}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Grid.Column="0"
+                    Text="Crystal Compound"/>
+                <TextBlock
+                    Grid.Column="1"
+                    Text="{x:Bind vm.SelectedItem.CrystalCompound, Mode=TwoWay}"/>
+                <TextBlock
+                    Grid.Column="2"
+                    Text="{x:Bind vm.SelectedItem.EffectiveCrystalCompound, Mode=TwoWay}"/>
+            </Grid>
+            <Grid
+                Visibility="{x:Bind vm.SelectedItem.DarkCompound, Mode=OneWay, Converter={StaticResource ZeroToHiddenConverter}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Grid.Column="0"
+                    Text="Dark Compound"/>
+                <TextBlock
+                    Grid.Column="1"
+                    Text="{x:Bind vm.SelectedItem.DarkCompound, Mode=TwoWay}"/>
+                <TextBlock
+                    Grid.Column="2"
+                    Text="{x:Bind vm.SelectedItem.EffectiveDarkCompound, Mode=TwoWay}"/>
+            </Grid>
+            <Grid
+                Visibility="{x:Bind vm.SelectedItem.BaseMetals, Mode=OneWay, Converter={StaticResource ZeroToHiddenConverter}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Grid.Column="0"
+                    Text="Base Metals"/>
+                <TextBlock
+                    Grid.Column="1"
+                    Text="{x:Bind vm.SelectedItem.BaseMetals, Mode=TwoWay}"/>
+                <TextBlock
+                    Grid.Column="2"
+                    Text="{x:Bind vm.SelectedItem.EffectiveBaseMetals, Mode=TwoWay}"/>
+            </Grid>
+            <Grid
+                Visibility="{x:Bind vm.SelectedItem.HeavyMetals, Mode=OneWay, Converter={StaticResource ZeroToHiddenConverter}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Grid.Column="0"
+                    Text="Heavy Metals"/>
+                <TextBlock
+                    Grid.Column="1"
+                    Text="{x:Bind vm.SelectedItem.HeavyMetals, Mode=TwoWay}"/>
+                <TextBlock
+                    Grid.Column="2"
+                    Text="{x:Bind vm.SelectedItem.EffectiveHeavyMetals, Mode=TwoWay}"/>
+            </Grid>
+            <Grid
+                Visibility="{x:Bind vm.SelectedItem.ReactiveMetals, Mode=OneWay, Converter={StaticResource ZeroToHiddenConverter}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Grid.Column="0"
+                    Text="Reactive Metals"/>
+                <TextBlock
+                    Grid.Column="1"
+                    Text="{x:Bind vm.SelectedItem.ReactiveMetals, Mode=TwoWay}"/>
+                <TextBlock
+                    Grid.Column="2"
+                    Text="{x:Bind vm.SelectedItem.EffectiveReactiveMetals, Mode=TwoWay}"/>
+            </Grid>
+            <Grid
+                Visibility="{x:Bind vm.SelectedItem.NobleMetals, Mode=OneWay, Converter={StaticResource ZeroToHiddenConverter}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Grid.Column="0"
+                    Text="Noble Metals"/>
+                <TextBlock
+                    Grid.Column="1"
+                    Text="{x:Bind vm.SelectedItem.NobleMetals, Mode=TwoWay}"/>
+                <TextBlock
+                    Grid.Column="2"
+                    Text="{x:Bind vm.SelectedItem.EffectiveNobleMetals, Mode=TwoWay}"/>
+            </Grid>
+            <Grid
+                Visibility="{x:Bind vm.SelectedItem.ToxicMetals, Mode=OneWay, Converter={StaticResource ZeroToHiddenConverter}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Grid.Column="0"
+                    Text="Toxic Metals"/>
+                <TextBlock
+                    Grid.Column="1"
+                    Text="{x:Bind vm.SelectedItem.ToxicMetals, Mode=TwoWay}"/>
+                <TextBlock
+                    Grid.Column="2"
+                    Text="{x:Bind vm.SelectedItem.EffectiveToxicMetals, Mode=TwoWay}"/>
+            </Grid>
+            <Grid
+                Visibility="{x:Bind vm.SelectedItem.ReactiveGas, Mode=OneWay, Converter={StaticResource ZeroToHiddenConverter}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Grid.Column="0"
+                    Text="Reactive Gas"/>
+                <TextBlock
+                    Grid.Column="1"
+                    Text="{x:Bind vm.SelectedItem.ReactiveGas, Mode=TwoWay}"/>
+                <TextBlock
+                    Grid.Column="2"
+                    Text="{x:Bind vm.SelectedItem.EffectiveReactiveGas, Mode=TwoWay}"/>
+            </Grid>
+            <Grid
+                Visibility="{x:Bind vm.SelectedItem.NobleGas, Mode=OneWay, Converter={StaticResource ZeroToHiddenConverter}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Grid.Column="0"
+                    Text="Noble Gas"/>
+                <TextBlock
+                    Grid.Column="1"
+                    Text="{x:Bind vm.SelectedItem.NobleGas, Mode=TwoWay}"/>
+                <TextBlock
+                    Grid.Column="2"
+                    Text="{x:Bind vm.SelectedItem.EffectiveNobleGas, Mode=TwoWay}"/>
+            </Grid>
+            <Grid
+                Visibility="{x:Bind vm.SelectedItem.IndustrialFibers, Mode=OneWay, Converter={StaticResource ZeroToHiddenConverter}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Grid.Column="0"
+                    Text="Industrial Fibers"/>
+                <TextBlock
+                    Grid.Column="1"
+                    Text="{x:Bind vm.SelectedItem.IndustrialFibers, Mode=TwoWay}"/>
+                <TextBlock
+                    Grid.Column="2"
+                    Text="{x:Bind vm.SelectedItem.EffectiveIndustrialFibers, Mode=TwoWay}"/>
+            </Grid>
+            <Grid
+                Visibility="{x:Bind vm.SelectedItem.SupertensilePlastics, Mode=OneWay, Converter={StaticResource ZeroToHiddenConverter}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Grid.Column="0"
+                    Text="Supertensile Plastics"/>
+                <TextBlock
+                    Grid.Column="1"
+                    Text="{x:Bind vm.SelectedItem.SupertensilePlastics, Mode=TwoWay}"/>
+                <TextBlock
+                    Grid.Column="2"
+                    Text="{x:Bind vm.SelectedItem.EffectiveSupertensilePlastics, Mode=TwoWay}"/>
+            </Grid>
+            <Grid
+                Visibility="{x:Bind vm.SelectedItem.Polyaramids, Mode=OneWay, Converter={StaticResource ZeroToHiddenConverter}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Grid.Column="0"
+                    Text="Polyaramids"/>
+                <TextBlock
+                    Grid.Column="1"
+                    Text="{x:Bind vm.SelectedItem.Polyaramids, Mode=TwoWay}"/>
+                <TextBlock
+                    Grid.Column="2"
+                    Text="{x:Bind vm.SelectedItem.EffectivePolyaramids, Mode=TwoWay}"/>
+            </Grid>
+            <Grid
+                Visibility="{x:Bind vm.SelectedItem.Coolant, Mode=OneWay, Converter={StaticResource ZeroToHiddenConverter}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Grid.Column="0"
+                    Text="Coolant"/>
+                <TextBlock
+                    Grid.Column="1"
+                    Text="{x:Bind vm.SelectedItem.Coolant, Mode=TwoWay}"/>
+                <TextBlock
+                    Grid.Column="2"
+                    Text="{x:Bind vm.SelectedItem.EffectiveCoolant, Mode=TwoWay}"/>
+            </Grid>
+            <Grid
+                Visibility="{x:Bind vm.SelectedItem.Condensates, Mode=OneWay, Converter={StaticResource ZeroToHiddenConverter}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Grid.Column="0"
+                    Text="Condensates"/>
+                <TextBlock
+                    Grid.Column="1"
+                    Text="{x:Bind vm.SelectedItem.Condensates, Mode=TwoWay}"/>
+                <TextBlock
+                    Grid.Column="2"
+                    Text="{x:Bind vm.SelectedItem.EffectiveCondensates, Mode=TwoWay}"/>
+            </Grid>
+            <Grid
+                Visibility="{x:Bind vm.SelectedItem.ConstructionBlocks, Mode=OneWay, Converter={StaticResource ZeroToHiddenConverter}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Grid.Column="0"
+                    Text="Construction Blocks"/>
+                <TextBlock
+                    Grid.Column="1"
+                    Text="{x:Bind vm.SelectedItem.ConstructionBlocks, Mode=TwoWay}"/>
+                <TextBlock
+                    Grid.Column="2"
+                    Text="{x:Bind vm.SelectedItem.EffectiveConstructionBlocks, Mode=TwoWay}"/>
+            </Grid>
+            <Grid
+                Visibility="{x:Bind vm.SelectedItem.Nanites, Mode=OneWay, Converter={StaticResource ZeroToHiddenConverter}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Grid.Column="0"
+                    Text="Nanites"/>
+                <TextBlock
+                    Grid.Column="1"
+                    Text="{x:Bind vm.SelectedItem.Nanites, Mode=TwoWay}"/>
+                <TextBlock
+                    Grid.Column="2"
+                    Text="{x:Bind vm.SelectedItem.EffectiveNanites, Mode=TwoWay}"/>
+            </Grid>
+            <Grid
+                Visibility="{x:Bind vm.SelectedItem.SilicateGlass, Mode=OneWay, Converter={StaticResource ZeroToHiddenConverter}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Grid.Column="0"
+                    Text="Silicate Glass"/>
+                <TextBlock
+                    Grid.Column="1"
+                    Text="{x:Bind vm.SelectedItem.SilicateGlass, Mode=TwoWay}"/>
+                <TextBlock
+                    Grid.Column="2"
+                    Text="{x:Bind vm.SelectedItem.EffectiveSilicateGlass, Mode=TwoWay}"/>
+            </Grid>
+            <Grid
+                Visibility="{x:Bind vm.SelectedItem.SmartfabUnits, Mode=OneWay, Converter={StaticResource ZeroToHiddenConverter}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Grid.Column="0"
+                    Text="Smartfab Units"/>
+                <TextBlock
+                    Grid.Column="1"
+                    Text="{x:Bind vm.SelectedItem.SmartfabUnits, Mode=TwoWay}"/>
+                <TextBlock
+                    Grid.Column="2"
+                    Text="{x:Bind vm.SelectedItem.EffectiveSmartfabUnits, Mode=TwoWay}"/>
+            </Grid>
+            <Grid
+                Visibility="{x:Bind vm.SelectedItem.CharredMicroCircuit, Mode=OneWay, Converter={StaticResource ZeroToHiddenConverter}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Grid.Column="0"
+                    Text="Charred Micro Circuit"/>
+                <TextBlock
+                    Grid.Column="1"
+                    Text="{x:Bind vm.SelectedItem.CharredMicroCircuit, Mode=TwoWay}"/>
+                <TextBlock
+                    Grid.Column="2"
+                    Text="{x:Bind vm.SelectedItem.EffectiveCharredMicroCircuit, Mode=TwoWay}"/>
+            </Grid>
+            <Grid
+                Visibility="{x:Bind vm.SelectedItem.FriedInterfaceCircuit, Mode=OneWay, Converter={StaticResource ZeroToHiddenConverter}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Grid.Column="0"
+                    Text="Fried Interface Circuit"/>
+                <TextBlock
+                    Grid.Column="1"
+                    Text="{x:Bind vm.SelectedItem.FriedInterfaceCircuit, Mode=TwoWay}"/>
+                <TextBlock
+                    Grid.Column="2"
+                    Text="{x:Bind vm.SelectedItem.EffectiveFriedInterfaceCircuit, Mode=TwoWay}"/>
+            </Grid>
+            <Grid
+                Visibility="{x:Bind vm.SelectedItem.TrippedPowerCircuit, Mode=OneWay, Converter={StaticResource ZeroToHiddenConverter}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Grid.Column="0"
+                    Text="Tripped Power Circuit"/>
+                <TextBlock
+                    Grid.Column="1"
+                    Text="{x:Bind vm.SelectedItem.TrippedPowerCircuit, Mode=TwoWay}"/>
+                <TextBlock
+                    Grid.Column="2"
+                    Text="{x:Bind vm.SelectedItem.EffectiveTrippedPowerCircuit, Mode=TwoWay}"/>
+            </Grid>
+            <Grid
+                Visibility="{x:Bind vm.SelectedItem.SmashedTriggerUnit, Mode=OneWay, Converter={StaticResource ZeroToHiddenConverter}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Grid.Column="0"
+                    Text="Smashed Trigger Unit"/>
+                <TextBlock
+                    Grid.Column="1"
+                    Text="{x:Bind vm.SelectedItem.SmashedTriggerUnit, Mode=TwoWay}"/>
+                <TextBlock
+                    Grid.Column="2"
+                    Text="{x:Bind vm.SelectedItem.EffectiveSmashedTriggerUnit, Mode=TwoWay}"/>
+            </Grid>
+            <Grid
+                Visibility="{x:Bind vm.SelectedItem.DamagedCloseinWeaponSystem, Mode=OneWay, Converter={StaticResource ZeroToHiddenConverter}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Grid.Column="0"
+                    Text="Damaged Close in Weapon System"/>
+                <TextBlock
+                    Grid.Column="1"
+                    Text="{x:Bind vm.SelectedItem.DamagedCloseinWeaponSystem, Mode=TwoWay}"/>
+                <TextBlock
+                    Grid.Column="2"
+                    Text="{x:Bind vm.SelectedItem.EffectiveDamagedCloseinWeaponSystem, Mode=TwoWay}"/>
+            </Grid>
+            <Grid
+                Visibility="{x:Bind vm.SelectedItem.ScorchedTelemetryProcessor, Mode=OneWay, Converter={StaticResource ZeroToHiddenConverter}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Grid.Column="0"
+                    Text="Scorched Telemetry Processor"/>
+                <TextBlock
+                    Grid.Column="1"
+                    Text="{x:Bind vm.SelectedItem.ScorchedTelemetryProcessor, Mode=TwoWay}"/>
+                <TextBlock
+                    Grid.Column="2"
+                    Text="{x:Bind vm.SelectedItem.EffectiveScorchedTelemetryProcessor, Mode=TwoWay}"/>
+            </Grid>
+            <Grid
+                Visibility="{x:Bind vm.SelectedItem.ContaminatedLorentzFluid, Mode=OneWay, Converter={StaticResource ZeroToHiddenConverter}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Grid.Column="0"
+                    Text="Contaminated Lorentz Fluid"/>
+                <TextBlock
+                    Grid.Column="1"
+                    Text="{x:Bind vm.SelectedItem.ContaminatedLorentzFluid, Mode=TwoWay}"/>
+                <TextBlock
+                    Grid.Column="2"
+                    Text="{x:Bind vm.SelectedItem.EffectiveContaminatedLorentzFluid, Mode=TwoWay}"/>
+            </Grid>
+            <Grid
+                Visibility="{x:Bind vm.SelectedItem.ConductivePolymer, Mode=OneWay, Converter={StaticResource ZeroToHiddenConverter}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Grid.Column="0"
+                    Text="Conductive Polymer"/>
+                <TextBlock
+                    Grid.Column="1"
+                    Text="{x:Bind vm.SelectedItem.ConductivePolymer, Mode=TwoWay}"/>
+                <TextBlock
+                    Grid.Column="2"
+                    Text="{x:Bind vm.SelectedItem.EffectiveConductivePolymer, Mode=TwoWay}"/>
+            </Grid>
+            <Grid
+                Visibility="{x:Bind vm.SelectedItem.ContaminatedNaniteCompound, Mode=OneWay, Converter={StaticResource ZeroToHiddenConverter}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Grid.Column="0"
+                    Text="Contaminated Nanite Compound"/>
+                <TextBlock
+                    Grid.Column="1"
+                    Text="{x:Bind vm.SelectedItem.ContaminatedNaniteCompound, Mode=TwoWay}"/>
+                <TextBlock
+                    Grid.Column="2"
+                    Text="{x:Bind vm.SelectedItem.EffectiveContaminatedNaniteCompound, Mode=TwoWay}"/>
+            </Grid>
+            <Grid
+                Visibility="{x:Bind vm.SelectedItem.DefectiveCurrentPump, Mode=OneWay, Converter={StaticResource ZeroToHiddenConverter}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Grid.Column="0"
+                    Text="Defective Current Pump"/>
+                <TextBlock
+                    Grid.Column="1"
+                    Text="{x:Bind vm.SelectedItem.DefectiveCurrentPump, Mode=TwoWay}"/>
+                <TextBlock
+                    Grid.Column="2"
+                    Text="{x:Bind vm.SelectedItem.EffectiveDefectiveCurrentPump, Mode=TwoWay}"/>
+            </Grid>
+
+            <StackPanel
+                Margin="10">
+                
+                <Grid
+                    Visibility="{x:Bind vm.SelectedItem.ProductionCost, Mode=OneWay, Converter={StaticResource ZeroToHiddenConverter}}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Grid.Column="0"
+                        Text="Production Cost"/>
+                    <TextBlock
+                        Grid.Column="1"
+                        Text="{x:Bind vm.SelectedItem.ProductionCost, Mode=TwoWay}"/>
+                </Grid>
+                <Grid
+                    Visibility="{x:Bind vm.SelectedItem.ProductionTime, Mode=OneWay, Converter={StaticResource ZeroToHiddenConverter}}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Grid.Column="0"
+                        Text="Production Time"/>
+                    <TextBlock
+                        Grid.Column="1"
+                        Text="{x:Bind vm.SelectedItem.ProductionTime, Mode=TwoWay}"/>
+                </Grid>
+                <Grid
+                    Visibility="{x:Bind vm.SelectedItem.ProductionCount, Mode=OneWay, Converter={StaticResource ZeroToHiddenConverter}}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Grid.Column="0"
+                        Text="Production Count"/>
+                    <TextBlock
+                        Grid.Column="1"
+                        Text="{x:Bind vm.SelectedItem.ProductionCount, Mode=TwoWay}"/>
+                </Grid>
+                <Grid
+                    Visibility="{x:Bind vm.MaterialCost, Mode=OneWay, Converter={StaticResource ZeroToHiddenConverter}}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Grid.Column="0"
+                        Text="Production Count"/>
+                    <TextBlock
+                        Grid.Column="1"
+                        Text="{x:Bind vm.MaterialCost, Mode=TwoWay}"/>
+                </Grid>
+                <Grid
+                    Visibility="{x:Bind vm.DisplayMaterialCost, Mode=OneWay, Converter={StaticResource ZeroToHiddenConverter}}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Grid.Column="0"
+                        Text="Material Cost"/>
+                    <TextBlock
+                        Grid.Column="1"
+                        Text="{x:Bind vm.DisplayMaterialCost, Mode=TwoWay}"/>
+                </Grid>
+                <Grid
+                    Visibility="{x:Bind vm.DisplayTotalManufactureCost, Mode=OneWay, Converter={StaticResource ZeroToHiddenConverter}}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Grid.Column="0"
+                        Text="Total Manufacture Cost"/>
+                    <TextBlock
+                        Grid.Column="1"
+                        Text="{x:Bind vm.DisplayTotalManufactureCost, Mode=TwoWay}"/>
+                </Grid>
+
+                <Grid
+                    Margin="0,5,0,0"
+                    Visibility="{x:Bind vm.DisplayTotalManufactureCost, Mode=OneWay, Converter={StaticResource ZeroToHiddenConverter}}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Grid.Column="0"
+                        Text="Estimated Brokerage"/>
+                    <TextBlock
+                        Grid.Column="1"
+                        Text="{x:Bind vm.EstimatedBrokerage, Mode=TwoWay}"/>
+                </Grid>
+                <Grid
+                    Visibility="{x:Bind vm.DisplayTotalManufactureCost, Mode=OneWay, Converter={StaticResource ZeroToHiddenConverter}}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Grid.Column="0"
+                        Text="Estimated Tax"/>
+                    <TextBlock
+                        Grid.Column="1"
+                        Text="{x:Bind vm.EstimatedTax, Mode=TwoWay}"/>
+                </Grid>
+            </StackPanel>
+            
+        </StackPanel>
+
+    </StackPanel>
+</Page>

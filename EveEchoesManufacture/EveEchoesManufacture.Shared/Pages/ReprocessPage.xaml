@@ -1,0 +1,34 @@
+﻿<Page
+    x:Class="EveEchoesManufacture.Pages.ReprocessPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:EveEchoesManufacture.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    xmlns:vm="using:EveEchoesManufacture.ViewModels">
+    <Page.DataContext>
+        <vm:ReprocessViewModel x:Name="VM"/>
+    </Page.DataContext>
+
+    <StackPanel>
+        <Button 
+            x:Name="Costs"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Height="40"
+            Width="40"
+            Click="GoBack_Click">
+            <Button.Content>
+                <StackPanel>
+                    <FontIcon 
+                    FontSize="15"
+                    FontFamily="{ThemeResource SymbolThemeFontFamily}"
+                    Glyph="&#xe845;"/>
+                </StackPanel>
+            </Button.Content>
+        </Button>
+
+    </StackPanel>
+</Page>

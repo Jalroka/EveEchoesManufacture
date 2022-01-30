@@ -1,0 +1,175 @@
+﻿<Page
+    x:Class="EveEchoesManufacture.Pages.SkillsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:EveEchoesManufacture.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls" 
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    xmlns:vm="using:EveEchoesManufacture.ViewModels">
+    <Page.DataContext>
+        <vm:SkillsViewModel x:Name="vm"/>
+    </Page.DataContext>
+
+    <StackPanel>
+        <Button 
+            x:Name="Costs"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Height="40"
+            Width="40"
+            Click="GoBack_Click">
+            <Button.Content>
+                <StackPanel>
+                    <FontIcon 
+                    FontSize="15"
+                    FontFamily="{ThemeResource SymbolThemeFontFamily}"
+                    Glyph="&#xe845;"/>
+                </StackPanel>
+            </Button.Content>
+        </Button>
+        <controls:Expander
+                Header="Material Efficiency">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <ComboBox
+                        Grid.Column="0"
+                        Grid.Row="0"
+                        x:Name="frigateEffiency"
+                        Header="Frigate"
+                        Margin="20"
+                        SelectedItem="{x:Bind vm.Efficiencies.FrigateEfficiency, Mode=TwoWay}"
+                        ItemsSource="{x:Bind vm.MaterialEfficiencyOptions}"
+                        SelectionChanged="Efficiency_SelectionChanged">
+                </ComboBox>
+                <ComboBox
+                        Grid.Column="1"
+                        Grid.Row="0"
+                        x:Name="destroyerEffiency"
+                        Header="Destroyer"
+                        Margin="20"
+                        SelectedItem="{x:Bind vm.Efficiencies.DestroyerEfficiency, Mode=TwoWay}"
+                        ItemsSource="{x:Bind vm.MaterialEfficiencyOptions}"
+                        SelectionChanged="Efficiency_SelectionChanged">
+                </ComboBox>
+                <ComboBox
+                        Grid.Column="0"
+                        Grid.Row="1"
+                        x:Name="cruiserEffiency"
+                        Header="Cruiser"
+                        Margin="20"
+                        SelectedItem="{x:Bind vm.Efficiencies.CruiserEfficiency, Mode=TwoWay}"
+                        ItemsSource="{x:Bind vm.MaterialEfficiencyOptions}"
+                        SelectionChanged="Efficiency_SelectionChanged">
+                </ComboBox>
+                <ComboBox
+                        Grid.Column="1"
+                        Grid.Row="1"
+                        x:Name="battleCruiserEffiency"
+                        Header="Battlecruiser"
+                        Margin="20"
+                        SelectedItem="{x:Bind vm.Efficiencies.BattleCruiserEfficiency, Mode=TwoWay}"
+                        ItemsSource="{x:Bind vm.MaterialEfficiencyOptions}"
+                        SelectionChanged="Efficiency_SelectionChanged">
+                </ComboBox>
+                <ComboBox
+                        Grid.Column="0"
+                        Grid.Row="2"
+                        x:Name="battleshipEffiency"
+                        Header="Battleship"
+                        Margin="20"
+                        SelectedItem="{x:Bind vm.Efficiencies.BattleshipEfficiency, Mode=TwoWay}"
+                        ItemsSource="{x:Bind vm.MaterialEfficiencyOptions}"
+                        SelectionChanged="Efficiency_SelectionChanged">
+                </ComboBox>
+
+                <ComboBox
+                        Grid.Column="1"
+                        Grid.Row="2"
+                        x:Name="industrialEffiency"
+                        Header="Industrial"
+                        Margin="20"
+                        SelectedItem="{x:Bind vm.Efficiencies.IndustrialEfficiency, Mode=TwoWay}"
+                        ItemsSource="{x:Bind vm.MaterialEfficiencyOptions}"
+                        SelectionChanged="Efficiency_SelectionChanged">
+                </ComboBox>
+                <ComboBox
+                        Grid.Column="0"
+                        Grid.Row="3"
+                        x:Name="moduleEffiency"
+                        Header="Module"
+                        Margin="20"
+                        SelectedItem="{x:Bind vm.Efficiencies.ModuleEfficiency, Mode=TwoWay}"
+                        ItemsSource="{x:Bind vm.MaterialEfficiencyOptions}"
+                        SelectionChanged="Efficiency_SelectionChanged">
+                </ComboBox>
+                <ComboBox
+                        Grid.Column="1"
+                        Grid.Row="3"
+                        x:Name="rigEffiency"
+                        Header="Rig"
+                        Margin="20"
+                        SelectedItem="{x:Bind vm.Efficiencies.RigEfficiency, Mode=TwoWay}"
+                        ItemsSource="{x:Bind vm.MaterialEfficiencyOptions}"
+                        SelectionChanged="Efficiency_SelectionChanged">
+                </ComboBox>
+                <ComboBox
+                        Grid.Column="0"
+                        Grid.Row="4"
+                        x:Name="droneEffiency"
+                        Header="Drone"
+                        Margin="20"
+                        SelectedItem="{x:Bind vm.Efficiencies.DroneEfficiency, Mode=TwoWay}"
+                        ItemsSource="{x:Bind vm.MaterialEfficiencyOptions}"
+                        SelectionChanged="Efficiency_SelectionChanged">
+                </ComboBox>
+                <ComboBox
+                        Grid.Column="1"
+                        Grid.Row="4"
+                        x:Name="structureEffiency"
+                        Header="Structure"
+                        Margin="20"
+                        SelectedItem="{x:Bind vm.Efficiencies.StructureEfficiency, Mode=TwoWay}"
+                        ItemsSource="{x:Bind vm.MaterialEfficiencyOptions}"
+                        SelectionChanged="Efficiency_SelectionChanged">
+                </ComboBox>
+                <ComboBox
+                        Grid.Column="0"
+                        Grid.Row="5"
+                        x:Name="brokeRate"
+                        Header="Broker Rate"
+                        Margin="20"
+                        SelectedItem="{x:Bind vm.Efficiencies.BrokerRate, Mode=TwoWay}"
+                        ItemsSource="{x:Bind vm.MaterialEfficiencyOptions}"
+                        SelectionChanged="Efficiency_SelectionChanged">
+                </ComboBox>
+                <ComboBox
+                        Grid.Column="1"
+                        Grid.Row="5"
+                        x:Name="taxRate"
+                        Header="Tax Rate"
+                        Margin="20"
+                        SelectedItem="{x:Bind vm.Efficiencies.TaxRate, Mode=TwoWay}"
+                        ItemsSource="{x:Bind vm.MaterialEfficiencyOptions}"
+                        SelectionChanged="Efficiency_SelectionChanged">
+                </ComboBox>
+
+            </Grid>
+        </controls:Expander>
+
+    </StackPanel>
+</Page>
