@@ -35,10 +35,10 @@ namespace EveEchoesManufacture.ViewModels
                 settings.SetKey(SettingsKey.efficiencies, JsonConvert.SerializeObject(Efficiencies));
             }
             else
-                Efficiencies = JsonConvert.DeserializeObject<MaterialEfficiencies>(e);
+                Efficiencies = JsonConvert.DeserializeObject<MaterialEfficiencies>(e) ?? new MaterialEfficiencies();
         }
 
-        public MaterialEfficiencies Efficiencies { get; set; }
+        public MaterialEfficiencies Efficiencies { get; set; } = new MaterialEfficiencies();
 
 
         private BaseManufacturablesService man = new BaseManufacturablesService();
